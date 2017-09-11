@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--Action Items: 1) when add-star button clicked add that value to other APIs to search for content 2) add drop down for stalk-value-->
+    <!--the query string for searching for actor:
+
+https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2c6b&query=+"firstName"+"lastName"-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Fun fan app to track your facvorite stars">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stalker's Hub</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <!-- Custom styles for this template -->
+        <link href="jumbotron.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Project #1  Amhed.Heather.Jhay.Steven</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="jumbotron text-center" style="background-image: url('assets/images/bg.png')">
+                <h1>Star Stalker</h1>
+                <p>Follow your favorite celeberity. Everywhere.</p>
+                <div id="buttons-view" class="btn primary text-capitalize text-primary"></div>
+            </div>
+            <!--<form id="star-form">
+            <label for="star-input">Add celeberity to stalk :</label>
+            <input type="text" id="star-input" placeholder="Enter name">
+            <input id="add-star" type="submit" value="Stalk!">
+        </form>-->
+            <div class="row">
+                <div id="search" class="col-md-4">
+                    <h3>Search</h3>
+                    <script>
+                    (function() {
+                        var cx = '001977773033108812263:xmkzlt87k0m';
+                        var gcse = document.createElement('script');
+                        gcse.type = 'text/javascript';
+                        gcse.async = true;
+                        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                        //gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(gcse, s);
+                    })();
+
+                </script>
+                    <gcse:search></gcse:search>
+                </div>
+            </div>
+            <div class="panel panel-primary" style="border-top: 0 solid #000507;border-bottom: 0px solid;border-left: 0px solid;border-right: 0px solid #000000;border-radius: 00px">
+                <div class="panel-body" style="background-color: rgba(0, 0, 0, 0.94);border-top-left-radius: 0;color: #1272ec">
+                    <div>
+                        <div class="table-responsive">
+                            <table width="100%" border="1" cellspacing="10px" cellpadding="10px" style="margin: 0;padding: 10px;color: #f2f3f8" class="table-hover">
+                                <caption style="background-color: rgba(53, 81, 110, 0.36);color: #cddcf4;padding: 5px;margin: 0x">
+                                    <h3 style="color: #f4f8fc;text-align: left" class="text-center">FAVORITE STARS TO STALK </h3>
+                                </caption>
+                                <tbody id="star-table" style="border-left: 0 solid;border-right: 0 solid;margin: 0;padding: 0">
+                                    <tr style="padding: 5px">
+                                        <th scope="col">MY STALKER HANDLE</th>
+                                        <th scope="col">STAR FIRST NAME</th>
+                                        <th scope="col">STAR LAST NAME</th>
+                                        <th scope="col">MY FAV MOVIE</th>
+                                        <th scope="col">STALK WORTHINESS</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="button" id="toggleForm" class="btn btn-default">Show/Hide Crazy Panel</button>
+                    <div id="adminArea">
+                        <div class="panel">
+                            <div class="panel-heading" style="background-color: #222942">Stalker Secret Admin Section</div>
+                            <div class="panel-body" style="background-color: #393b48">
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">Stalker Handle</label>
+                                    <input type="text" class="form-control" id="stalker-name" placeholder="enter your stralker handle">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">Star First Name</label>
+                                    <input type="text" class="form-control" id="star-first-name" placeholder="enter star's first name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">Star Last Name</label>
+                                    <input type="text" class="form-control" id="star-last-name" placeholder="enter star's last name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">My Fav Movie</label>
+                                    <input type="text" class="form-control" id="star-fav-mov" placeholder="enter their best movie">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">Stalk Worthiness</label>
+                                    <input type="text" class="form-control" id="stalk-value" placeholder="enter star's stalk value 1-10">
+                                </div>
+                                <button type="button" id="add-star" class="btn btn-success">Add to Stalk List</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+        <script src="assets/js/stalker.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

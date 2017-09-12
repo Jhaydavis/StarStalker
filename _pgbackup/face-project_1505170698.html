@@ -71,8 +71,7 @@
             //$("#responseTextArea").val(JSON.stringify(data, null, 2));
             $("#responseTextArea").val(JSON.stringify(data,null,2));
             
-            console.log(data[0].faceAttributes.age);
-            
+            console.log(data);
         })
 
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -92,17 +91,17 @@
                     <br>
                     <br>
                     <div id="wrapper" style="width:1020px; display:table;">
-                        <div id="imageDiv" style="width:420px; display:table-cell;">
-                            Analyzed Face:
-                            <br>
-                            <br>
-                            <img id="sourceImage" width="400" />
-                        </div>
                         <div id="jsonOutput" style="display:table-cell;width: 300px;">
                             Analysis Results:
                             <br>
                             <br>
                             <textarea id="responseTextArea" class="UIInput" style="width:300px; height:400px;margin-left: 80px;"></textarea>
+                        </div>
+                        <div id="imageDiv" style="width:420px; display:table-cell;">
+                            Analyzed Face:
+                            <br>
+                            <br>
+                            <img id="sourceImage" width="400" />
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,6 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    
                     <a class="navbar-brand" href="#">Project One: Ahmed.Heather.Jhay.Steven</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
@@ -82,36 +81,42 @@
         });
     };
 </script>
+                <h1>Analyze image:</h1>
+                Enter the URL to an image then click the 
 
-<h1>Analyze image:</h1>
-Enter the URL to an image then click the <strong>Analyze Now</strong> button. Have Fun!
-<br><br>
-Image to analyze: <input type="text" name="inputImage" id="inputImage" value="http://kids.nationalgeographic.com/content/dam/kids/photos/States/A-I/hawaii-beach.adapt.945.1.png" />
-<button onclick="processImage()">Analyze Now!</button>
-<br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="jsonOutput" style="width:600px; display:table-cell;">
-        Analysis Results:
-        <br><br>
-        <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
-    </div>
-    <div id="imageDiv" style="width:420px; display:table-cell;">
-        Image Analyzed:
-        <br><br>
-        <img id="sourceImage" width="400" />
-    </div>
-</div>
-        <div class="container">
-            <!-- Example row of columns -->
-        </div>         
+                <strong>Analyze Now</strong> button. Have Fun!
+                <br>
+                <br>
+                Image to analyze: 
 
-        <!-- /container -->
-        <!-- Bootstrap core JavaScript
+                <input type="text" name="inputImage" id="inputImage" value="http://kids.nationalgeographic.com/content/dam/kids/photos/States/A-I/hawaii-beach.adapt.945.1.png" />
+                <button onclick="processImage()">Analyze Now!</button>
+                <br>
+                <br>
+                <div id="wrapper" style="width:1020px; display:table;">
+                    <div id="imageDiv" style="width:420px; display:table-cell;">
+                        Image Analyzed:
+                        <br>
+                        <br>
+                        <img id="sourceImage" width="400" />
+                    </div>
+                    <div id="jsonOutput" style="width:600px; display:table-cell;">
+                        Analysis Results:
+                        <br>
+                        <br>
+                        <textarea id="responseTextArea" class="UIInput" style="width:300px; height:400px;margin-left: 100px;"></textarea>
+                    </div>
+                </div>
+                <div class="container">
+                    <!-- Example row of columns -->
+                </div>                 
+                <!-- /container -->
+                <!-- Bootstrap core JavaScript
     ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+                <!-- Placed at the end of the document so the pages load faster -->
+                <script src="assets/js/jquery.min.js"></script>
+                <script src="bootstrap/js/bootstrap.min.js"></script>
+                <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+                <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>

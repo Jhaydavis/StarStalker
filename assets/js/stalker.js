@@ -61,13 +61,13 @@ myData.ref("/Stars").on("child_added", function (snap) {
 function displayStarInfo() {
     var starFirstName = $("#star-first-name").val().trim();
     var starLastName = $("#star-last-name").val().trim();
-    var queryURL = "https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2c6b&query=" +starFirstName+starLastName;
+    var queryURL = "https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2c6b&query="+starFirstName+"+"+starLastName;
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).done(function (results) {
-
+        alert(starFirstName+starLastName);
         console.log(results);
 
     });

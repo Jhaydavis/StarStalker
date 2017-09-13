@@ -74,17 +74,38 @@ function displayStarInfo() {
 
 
         // Retrieving the URL for the image
-        var imgURL = "https://image.tmdb.org/t/p/w500"+res.results[0].known_for[0].poster_path;
+        //var imgURL = "https://image.tmdb.org/t/p/w500"+res.results[0].known_for[0].poster_path;
+        var imgURL = "https://image.tmdb.org/t/p/w500" + res.results[0].known_for[0].backdrop_path;
         console.log(imgURL);
+        console.log(queryURL);
+        var starKnownFor = res.results[0].known_for[0].title;
+        console.log(starKnownFor);
+        var starFullName = res.results[0].name;
+        console.log(starFullName);
+        var starID = res.results[0].id;
+        console.log(starID);
 
         // Creating an element to hold the image
         //var movieDiv = $("<div class='movie'>");
-        
+
         var image = $("<img>").attr("src", imgURL);
         $("#poster_image").append(image);
 
-        //movieDiv.append(image);
 
+        // we take the starID return data and feed it into this new query to get
+        // the bio info
+        var actorQueryURL = "http://api.themoviedb.org/3/person/" + starID + "?api_key=b87c09787f893f3fa630db9c1eef2c6b";
+        $.ajax({
+            url: actorQueryURL,
+            method: "GET"
+        }).done(function (resBio) {
+            //alert(starFirstName+starLastName);
+            
+            console.log(resBio.birthday);
+            console.log(resBio.place_of_birth);
+            console.log(resBio.biography);
+            console.log(resBio.homepage);
+        });
     });
 };
 

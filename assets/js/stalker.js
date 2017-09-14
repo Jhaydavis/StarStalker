@@ -100,18 +100,95 @@ function displayStarInfo() {
             method: "GET"
         }).done(function (resBio) {
             //alert(starFirstName+starLastName);
-            
+            /*
+            console.log(resBio);
             console.log(resBio.birthday);
             console.log(resBio.place_of_birth);
             console.log(resBio.biography);
             console.log(resBio.homepage);
+            console.log(resBio.profile_path);
+            */
+
+            var starBirthDay = resBio.birthday;
+            var starBirthPlace = resBio.place_of_birth;
+            var starBio = resBio.biography;
+            var starWebPage = resBio.homepage;
+            var starPhotoURL = "https://image.tmdb.org/t/p/w500" + resBio.profile_path;
+
+            var starImage = $("<img>").attr("src", starPhotoURL);
+
+            $("#star_photo").append(starImage);
+            $("#star_birthday").html("<p>" + starBirthDay + "</p>");
+            $("#star_birthplace").html("<p>" + starBirthPlace + "</p>");
+            $("#star_bio").html("<p>" + starBio + "</p>");
+
+
+            // ******* Facial Recognition/Emotion Function **************
+
+            function processImage() {
+
+                var subscriptionKey = "7a8638a5843f46e3bf754e3bf1d13193";
+
+
+                var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+
+                // Request parameters.
+                var params = {
+                    "returnFaceId": "true",
+                    "returnFaceLandmarks": "false",
+                    "returnFaceAttributes": "age,gender,emotion",
+                };
+
+                // Display the image.
+                var sourceImageUrl = document.getElementById("inputImage").value;
+                document.querySelector("#sourceImage").src = sourceImageUrl;
+
+                // Perform the REST API call.
+                $.ajax({
+                        url: uriBase + "?" + $.param(params),
+
+                        // Request headers.
+                        beforeSend: function (xhrObj) {
+                            xhrObj.setRequestHeader("Content-Type", "application/json");
+                            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                        },
+
+                        type: "POST",
+
+                        // Request body.
+                        data: '{"url": ' + '"' + sourceImageUrl + '"}',
+                    })
+
+                    .done(function (data) {
+                        // Show formatted JSON on webpage.
+                        //$("#responseTextArea").val(JSON.stringify(data, null, 2));
+                        $("#responseTextArea").val(JSON.stringify(data, null, 2));
+
+                        console.log(data[0].faceAttributes.age);
+
+                    })
+
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        // Display error message.
+                        var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                        errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                            jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+                        alert(errorString);
+                    });
+            };
+
+
+
+
+
+
         });
     });
 };
 
 
 
-
+// https://image.tmdb.org/t/p/w500/pQFoyx7rp09CJTAb932F2g8Nlho.jpg
 
 
 

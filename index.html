@@ -35,7 +35,7 @@ https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2
             <input type="text" id="star-input" placeholder="Enter name">
             <input id="add-star" type="submit" value="Stalk!">
         </form>-->
-            <div class="row">
+            <!--<div class="row">
                 <div id="search" class="col-md-4">
                     <h3>Search</h3>
                     <script>
@@ -53,13 +53,48 @@ https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2
                 </script>
                     <gcse:search></gcse:search>
                 </div>
-            </div>
+            </div>-->
             
-            <div id ="poster_image"></div>
+            <button type="button" id="toggleForm" class="btn btn-default">Show/Hide: Stalker Admin Panel</button>
+                    <div id="adminArea">
+                        <div class="panel">
+                            <div class="panel-heading" style="background-color: #222942">Stalker Secret Admin Section</div>
+                            <div class="panel-body" style="background-color: #393b48">
+                                <!--<div class="form-group">
+                                    <label class="control-label" for="formInput1001">Stalker Handle</label>
+                                    <input type="text" class="form-control" id="stalker-name" placeholder="enter your stralker handle">
+                                </div>-->
+                                <form action="">
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">Star First Name</label>
+                                    <input type="text" class="form-control" id="star-first-name" placeholder="enter star's first name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">Star Last Name</label>
+                                    <input type="text" class="form-control" id="star-last-name" placeholder="enter star's last name">
+                                </div>
+                                <!--<div class="form-group">
+                                    <label class="control-label" for="formInput1001">My Fav Movie</label>
+                                    <input type="text" class="form-control" id="star-fav-mov" placeholder="enter their best movie">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="formInput1001">Stalk Worthiness</label>
+                                    <input type="text" class="form-control" id="stalk-value" placeholder="enter star's stalk value 1-10">
+                                </div>-->
+                                <button type="button" id="add-star" class="btn btn-success">View/ Add to Stalk List</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            <div id ="star_name"></div>
             <div id ="star_photo"></div>
+            <div id = "responseTextArea"></div>
             <div id ="star_birthday"></div>
             <div id ="star_birthplace"></div>
+            <div id ="star_webPage"></div>
             <div id ="star_bio"></div>
+            <div><h3>Appearances In:</h3></div>
+            <div id ="poster_image"></div>
             
             <div class="panel panel-primary" style="border-top: 0 solid #000507;border-bottom: 0px solid;border-left: 0px solid;border-right: 0px solid #000000;border-radius: 00px">
                 <div class="panel-body" style="background-color: rgba(0, 0, 0, 0.94);border-top-left-radius: 0;color: #1272ec">
@@ -71,46 +106,17 @@ https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2
                                 </caption>
                                 <tbody id="star-table" style="border-left: 0 solid;border-right: 0 solid;margin: 0;padding: 0">
                                     <tr style="padding: 5px">
-                                        <th scope="col">MY STALKER HANDLE</th>
+                                        
                                         <th scope="col">STAR FIRST NAME</th>
                                         <th scope="col">STAR LAST NAME</th>
-                                        <th scope="col">MY FAV MOVIE</th>
-                                        <th scope="col">STALK WORTHINESS</th>
+                                        <th scope="col">URL</th>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <hr>
-                    <button type="button" id="toggleForm" class="btn btn-default">Show/Hide Crazy Panel</button>
-                    <div id="adminArea">
-                        <div class="panel">
-                            <div class="panel-heading" style="background-color: #222942">Stalker Secret Admin Section</div>
-                            <div class="panel-body" style="background-color: #393b48">
-                                <div class="form-group">
-                                    <label class="control-label" for="formInput1001">Stalker Handle</label>
-                                    <input type="text" class="form-control" id="stalker-name" placeholder="enter your stralker handle">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="formInput1001">Star First Name</label>
-                                    <input type="text" class="form-control" id="star-first-name" placeholder="enter star's first name">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="formInput1001">Star Last Name</label>
-                                    <input type="text" class="form-control" id="star-last-name" placeholder="enter star's last name">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="formInput1001">My Fav Movie</label>
-                                    <input type="text" class="form-control" id="star-fav-mov" placeholder="enter their best movie">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="formInput1001">Stalk Worthiness</label>
-                                    <input type="text" class="form-control" id="stalk-value" placeholder="enter star's stalk value 1-10">
-                                </div>
-                                <button type="button" id="add-star" class="btn btn-success">Add to Stalk List</button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

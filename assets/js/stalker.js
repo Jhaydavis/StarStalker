@@ -138,12 +138,12 @@
         };
         
         if (confirm("Wanna stalk " + first + " " + last + "?")){
-        $("html, body").animate({ scrollTop:0 }, "slow");   
-        //window.scrollTo(0, 0);        
-        DisplayStarInfo();
-        } else{
-           // alert("ok");
-        }
+            $("html, body").animate({ scrollTop:0 }, "slow");   
+            //window.scrollTo(0, 0);        
+            DisplayStarInfo();
+            } else{
+            //alert("ok");
+             }
     });
     
 

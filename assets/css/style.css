@@ -6,7 +6,7 @@ body {
     position: relative;
 }
 
-h {
+h1 {
     font-family: 'Shadows Into Light', cursive;
     text-align: left;
     margin: 10px 400px 0px 35px;
@@ -15,10 +15,11 @@ h {
 }
 
 h3 {
-    padding: 0;
-    margin left: 10px;
+    margin-left: 25px;
     font-family: 'Shadows Into Light', cursive;
     font-weight: very heavy;
+    color: darkred;
+    font-size: 24px;
 }
 
 h4 {
@@ -114,16 +115,19 @@ h4 {
     font-size: 24px;
     font-weight: very strong;
 }
+
 #star_name {
     font-size: 20px;
     color: white;
+    margin-left: 25px;
 }
 
-}
 #star_photo {
     height: auto;
     width: 100%;
+    margin-left: 25px;
 }
+
 .starInfo {
     color: white;
     font-size: 16px;
@@ -139,4 +143,18 @@ h4 {
     color: white;
     background-color: darkred;
     border-color: darkgrey;
+}
+
+#responseBox {
+    color: white;
+    font-size: 15px;
+    margin-left: 25px;
+}
+
+#star_birthday, #star_birthplace, #star_webPage {
+    font-size: 16px;
+}
+
+#poster_image {
+    margin: 0px 25px 10px 25px;
 }

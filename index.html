@@ -49,12 +49,11 @@ https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2
     </nav>
     <div class="container-fluid">
         <div class="jumbotron">
-            <h>Star Stalker</h>
+            <h1>Star Stalker</h1>
             <h4>Follow your favorite celebrity. <br>Everywhere.</h4>
             <br><br>
         </div>
-    </div>
-    </div>
+
     <br><br>
 
     <audio controls id="soundtrack">
@@ -84,14 +83,15 @@ https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2
     </div>
     <div id="star_name"></div>
     <div id="star_photo"></div>
-    <div id="responseTextArea"></div>
-    <div id="star_birthday"></div>
-    <div id="star_birthplace"></div>
-    <div id="star_webPage"></div>
-    <div id="star_bio"></div>
-    <div>
-        <h3>Appearances In:</h3>
+    <div id=responseBox>
+        <div id="responseTextArea"></div>
+        <div id="star_birthday"></div>
+        <div id="star_birthplace"></div>
+        <div id="star_webPage"></div>
+        <div id="star_bio"></div>
+        <div id="star_news"></div>
     </div>
+    <h3>Appearances In:</h3>
     <!--Beginning of Resonsive image Gallery-->
 
     <div class="resonsive">
@@ -138,6 +138,7 @@ https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2
             </div>
         </div>
     </div>
+</div>
     <!-- /container -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>

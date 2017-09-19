@@ -35,7 +35,7 @@ h4 {
     color: darkred;
     font: bold;
     background-color: black;
-    background-image: url("/assets/images/peepingtom.jpg");
+    background-image: url("../images/peepingtom.jpg");
     background-position: right;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -114,7 +114,10 @@ h4 {
     font-size: 24px;
     font-weight: very strong;
 }
-
+#star_name {
+    font-size: 20px;
+    color: white;
+}
 
 }
 #star_photo {

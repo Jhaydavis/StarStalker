@@ -1,0 +1,22 @@
+.panel-primary {
+    border-top: 0 solid #000507;
+    border-bottom: 0px solid;
+    border-left: 0px solid;
+    border-right: 0px solid #000000;
+    border-radius: 00px;
+}
+
+.panel-body {
+    background-color: darkgrey;
+    border-top-left-radius: 0;
+    color: #7c7c7cec;
+}
+
+.table-responsive {
+    width=100%;
+    border=1;
+    margin: 0;
+    padding: 10px;
+    border-spacing: 10px;
+    border-collapse: 10px;
+}

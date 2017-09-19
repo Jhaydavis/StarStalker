@@ -1,0 +1,139 @@
+body {
+    background-color: dimgrey;
+}
+
+.navbar {
+    position: relative;
+}
+
+h {
+    font-family: 'Shadows Into Light', cursive;
+    text-align: left;
+    margin: 10px 400px 0px 35px;
+    font-size: 100px;
+    padding-bottom: 0px;
+}
+
+h3 {
+    padding: 0;
+    margin left: 10px;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: very heavy;
+}
+
+h4 {
+    font-family: 'Shadows Into Light', cursive;
+    position: left;
+    margin-left: 40px;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+    font-size: 40px;
+}
+
+.jumbotron {
+    overflow: auto;
+    color: darkred;
+    font: bold;
+    background-color: black;
+    background-image: url("/assets/images/peepingtom.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: contain;
+    margin: 0px 0px 0px 0px;
+}
+
+.stalker {
+    width: 100%;
+    height: 100%;
+}
+
+#eye {
+    position: absolute;
+    clear: both;
+    float: right;
+    width: 50%;
+    height: 50%;
+    border: solid;
+    border-width: thick;
+    border-color: black;
+}
+
+#soundtrack {
+    position: relative;
+    bottom: 0px;
+    background-color: dimgrey;
+    width: 97%;
+    height: 2%;
+    padding: 0px;
+    margin-right: 35px;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+#toggleForm {
+    position: relative;
+    margin-left: 20px;
+    background-color: darkred;
+    border-color: darkgrey;
+    color: white;
+}
+
+#adminArea {}
+
+.panel {
+    background-color: dimgrey;
+    margin-left: 20px;
+}
+
+.panel-body {
+    background-image: url("/assets/images/stalker.png");
+}
+
+.panel-heading {
+    background-color: black;
+    color: white;
+}
+
+.btn {
+    margin: 10px 20px 25px 5px;
+}
+
+.inputFrame {}
+
+.form-group {
+    font-family: 'Shadows Into Light', cursive;
+    color: white;
+    font-size: 24px;
+    font-weight: very strong;
+}
+
+.starFacts {
+    font-family: 'Shadows Into Light', cursive;
+    color: white;
+    font-size: 24px;
+    font-weight: very strong;
+}
+
+
+}
+#star_photo {
+    height: auto;
+    width: 100%;
+}
+.starInfo {
+    color: white;
+    font-size: 16px;
+}
+.form-control {
+    font-size: 20px;
+}
+.picContainer {
+    width: 200px;
+    height: 120px;
+}
+#add-star {
+    color: white;
+    background-color: darkred;
+    border-color: darkgrey;
+}

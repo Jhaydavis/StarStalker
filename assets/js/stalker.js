@@ -62,6 +62,7 @@
                 $("#star_birthplace").html("Hometown : " + starBirthPlace);
                 $("#star_webPage").html("Web Page : " + starWebPage);
                 $("#star_bio").html("<p>Biography : " + starBio + "</p>");
+
                 
                 
                 
@@ -93,7 +94,7 @@
                 
                 
                 
-                
+
                 // ******* Facial Recognition/Emotion Function **************
              //***********************************************************
 
@@ -116,11 +117,7 @@
              var sourceImageUrl = starPhotoURL
              console.log(starPhotoURL);
 
-                
-                
-                
-                
-                
+
              // Perform the REST API call.
              $.ajax({
                      url: uriBase + "?" + $.param(params),
@@ -174,6 +171,7 @@
         });
         };
         
+
         //if (confirm("Wanna stalk " + first + " " + last + "?")){
             $("html, body").animate({ scrollTop:0 }, "slow");   
             //window.scrollTo(0, 0);        
@@ -181,6 +179,7 @@
            // } else{
             //alert("ok");
            //  }
+
     });
     
 

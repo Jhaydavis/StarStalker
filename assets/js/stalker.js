@@ -1,3 +1,8 @@
+ // To DO:
+ //I've added a button object but need some way to insert into the database with the data-name I'm trying to store to it.
+
+
+
  $(document).on('click', 'tr', function () {
      console.log($(this[0]))
  });
@@ -34,7 +39,7 @@
 
      displayStarInfo();
 
-     var stalkerName = $("#stalker-name").val().trim();
+     //var stalkerName = $("#stalker-name").val().trim();
      var starFirstName = $("#star-first-name").val().trim();
      var starLastName = $("#star-last-name").val().trim();
      //var starFavMov = $("#star-fav-mov").val().trim();
@@ -75,24 +80,55 @@
  function displayStarInfo() {
      var starFirstName = $("#star-first-name").val().trim();
      var starLastName = $("#star-last-name").val().trim();
-     var queryURL = "https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2c6b&query=" + starFirstName + "+" + starLastName;
+     var starFullName = starFirstName + "+" + starLastName;
+     //var queryURL = "https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2c6b&query=" + starFirstName + "+" + starLastName;
+     var queryURL = "https://api.themoviedb.org/3/search/person?api_key=b87c09787f893f3fa630db9c1eef2c6b&query=" + starFullName;
+
 
      $.ajax({
          url: queryURL,
          method: "GET"
      }).done(function (res) {
 
-         myData.ref("/Stars/").push({
+         console.log(res);
+         if (res.total_results === 0) {
 
-             sfName: starFirstName,
-             slName: starLastName,
-             savedQueryURL: queryURL
+             // if no match, display message and clear out previous div content
+
+             $("#star_name").html(starFirstName + " " + starLastName + " not in database. Please check spelling.");
+             $("#poster_image").empty();
+             $("#star_photo").empty();
+             $("#star_birthday").empty();
+             $("#star_birthplace").empty();
+             $("#star_webPage").empty();
+             $("#star_bio").empty();
+             $("#star-first-name").empty();
+             $("#star-last-name").empty();
+
+             return;
+
+         } else {
 
 
-         });
+
+             var bestMovie = res.results[0].known_for[0].title;
+
+             console.log(bestMovie);
+
+             myData.ref("/Stars/").push({
+
+                 sfName: starFirstName,
+                 slName: starLastName,
+                 savedQueryURL: queryURL,
+                 knownFor: bestMovie,
+                 //sBtn: btn
 
 
-       
+             });
+         };
+
+
+
 
 
          // Retrieving the URL for the image
@@ -146,16 +182,58 @@
              var starBio = resBio.biography;
              var starWebPage = resBio.homepage;
              var starPhotoURL = "https://image.tmdb.org/t/p/w500" + resBio.profile_path;
-
+             
              var starImage = $("<img>").attr("src", starPhotoURL);
 
+
+             var wpLink = starWebPage;
+             var actualLink = wpLink.link(starWebPage);
+             
+             
+             
+             $("#star_name").empty();
+             $("#poster_image").empty();
+             $("#star_photo").empty();
+             $("#star_birthday").empty();
+             $("#star_birthplace").empty();
+             $("#star_webPage").empty();
+             $("#star_bio").empty();
+             $("#star-first-name").empty();
+             $("#star-last-name").empty();
+             
+             
+            
              $("#star_photo").html(starImage);
              $("#star_name").html(starFirstName + " " + starLastName)
              $("#star_birthday").html("Birthday : " + starBirthDay);
              $("#star_birthplace").html("Hometown : " + starBirthPlace);
-             $("#star_webPage").html("Web Page : " + starWebPage);
+             $("#star_webPage").html("Web Page : " + actualLink);
              $("#star_bio").html("<p>Biography : " + starBio + "</p>");
 
+
+             // NYT News API********************************************
+
+
+             var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+             url += '?' + $.param({
+                 'api-key': "565a7e37f7be44afa0b3d15d552a7e5c",
+                 'q': starFirstName + " " + starLastName
+             });
+             $.ajax({
+                 url: url,
+                 method: 'GET',
+             }).done(function (result) {
+                 //console.log(result.response.docs[0]);
+                 var headline = result.response.docs[0].headline.main;
+                 var headlineURL = result.response.docs[0].web_url;
+
+                 $("#star_news").html("<h4>" + headline + "</h4>" + "<br>");
+                 $("#star_news").append(headlineURL);
+
+             }).fail(function (err) {
+                 throw err;
+             });
+             // End of NYT API code***************************************
 
 
 
@@ -164,8 +242,9 @@
 
 
 
-             var subscriptionKey = "7a8638a5843f46e3bf754e3bf1d13193";
+             var subscriptionKey = "8cb8b13147404898862a450c5b3a230e";
              var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+            
 
              // Request parameters.
              var params = {
@@ -226,23 +305,24 @@
                          jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
                      alert(errorString);
                  });
-             
-             
+
+
          });
-         
-         
+
+
      });
-     
-     
+
+
  };
-  myData.ref("/Stars").on("child_added", function (snap) {
+ myData.ref("/Stars").on("child_added", function (snap) {
 
-             var record = snap.val();
-             $("#star-table > tbody").html("");
-             $("form").trigger("reset");
+     var record = snap.val();
+     $("#star-table > tbody").html("");
+     $("form").trigger("reset");
 
-             $("#star-table").append("<tr><td>" + record.sfName + "</td><td>" + record.slName + "</td><td>" + record.savedQueryURL + "</td></tr>)");
+     $("#star-table").append("<tr><td>" + record.sfName + "</td><td>" + record.slName + "</td><td>" + record.sBtn + "</td></tr>)");
 
-             console.log(res);
-         });
 
+ });
+
+ //$(document).on("click", ".starBtn", displayStarInfo);
